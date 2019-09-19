@@ -1,1 +1,6 @@
-require('./jquery-scrl.js');
+/*
+ * index.js
+ */
+
+import './style.css'
+require('./jquery-scrl.js')

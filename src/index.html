@@ -7,47 +7,47 @@
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 	<style>
-	body{
-		background:yellow;
+	/*body{
+		background: yellow;
 		width:100%;
-	}
+	}*/
 
-	h1{
-		font-size:32px;
-	}
+	h1{ font-size: 32px; }
 
-	#scr{
-		/*background:red;*/
-	}
+	#scrl-wrap{ background: red; }
 
 	.scr-con{
-		background:red;
+		background: red;
 	}
 
-	.scr-con-tgt{
-		/*width:200px;*/
+	#gimmick-1{
 		overflow: hidden;
 	}
 
-	.scr-con-tgt img{
+	.scrl-contents{
 		width: 100%;
 	}
 
 	.wrap{
-		width:500px;
-		margin:0 auto;
-		background:green;
+		width: 500px;
+		margin: 0 auto;
+		background: green;
+	}
+
+	header{
+		background: blue;
+		color: #fff;
 	}
 
 	footer{
-		position:bottom;
+		position: bottom;
 		background: #000;
 		color:#fff;
 	}
 	</style>
 </head>
 
-<body>
+<body><div id="scrl-wrap">
 
 	<header>
 		<h1>ヘッダー</h1>
@@ -58,15 +58,20 @@
 		<h1>ヘッダー</h1>
 	</header>
 
-	<div id="scr">
-		<div class="scr-con">
+	<div>
+		<div>
 
 			<div class="wrap">
-				<div class="scr-con-tgt">
-					<img src="owl.png" />
+				<div id="gimmick-1">
+					<img src="owl.png" class="scrl-contents" />
 				</div>
 
 				<article>
+					<h1>TEST2</h1>
+					<h1>TEST</h1>
+					<h1>TEST</h1>
+					<h1>TEST</h1>
+					<!--
 					<h1>TEST</h1>
 					<h1>TEST</h1>
 					<h1>TEST</h1>
@@ -105,15 +110,13 @@
 					<h1>TEST</h1>
 					<h1>TEST</h1>
 					<h1>TEST</h1>
-					<h1>TEST</h1>
-					<h1>TEST</h1>
-					<h1>TEST</h1>
-					<h1>TEST</h1>
+					-->
 				</article>
 			</div>
 		</div>
 	</div>
 
+	<!--
 	<div class="wrap">
 		<h1>CON-2</h1>
 		<h1>CON-2</h1>
@@ -135,9 +138,13 @@
 		<h1>CON-2</h1>
 		<h1>CON-2</h1>
 	</div>
+	-->
 
 	<footer>
 		footer
 	</footer>
-</body>
+
+
+
+</div></body>
 </html>

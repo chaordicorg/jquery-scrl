@@ -1,5 +1,8 @@
 const path = require('path');
 //const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = ( env, argv ) => ({
@@ -9,6 +12,14 @@ module.exports = ( env, argv ) => ({
 	output: {
 		filename: "assets/js/[name].min.js",
 		path: path.resolve(__dirname, 'dist')
+	},
+
+	// 最適化オプションを上書き
+	optimization: {
+		minimizer: [
+			new TerserPlugin({}),
+			new OptimizeCssAssetsPlugin({})
+		]
 	},
 
 	/*
@@ -43,14 +54,15 @@ module.exports = ( env, argv ) => ({
 			 * css-loaderの設定
 			 */
 			{
-				test: /\.css$/,
+				test: /\.(sa|sc|c)ss$/,
 				use: [
-					'style-loader',{
+					MiniCssExtractPlugin.loader, {
 						loader: 'css-loader',
 						options: {
 							url: false
 						}
-					}
+					},
+					'sass-loader'
 				]
 			},
 
@@ -93,6 +105,9 @@ module.exports = ( env, argv ) => ({
 			chunks: ['jquery-scrl'],
 			filename : 'index.html',
 			template:'./src/index.html'
-		})
+		}),
+		new MiniCssExtractPlugin({
+			filename: 'style.css'
+		}),
 	]
 });
