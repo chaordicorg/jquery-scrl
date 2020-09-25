@@ -75,16 +75,6 @@ module.exports = ( env, argv ) => ({
 			},
 
 			/*
-			 * url-loaderの設定
-			 */
-			/*
-			{
-				test: /\.(jpg|png|gif)$/,
-				loader: ['url-loader'],
-			},
-			*/
-
-			/*
 			 * file-loaderの設定
 			 */
 			{

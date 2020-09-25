@@ -1,0 +1,37 @@
+/*body{
+	background: yellow;
+	width:100%;
+}*/
+
+h1{ font-size: 32px; }
+
+#scrl-wrap{ background: red; }
+
+.scr-con{
+	background: red;
+}
+
+#gimmick-1{
+	overflow: hidden;
+}
+
+.scrl-contents{
+	width: 100%;
+}
+
+.wrap{
+	width: 500px;
+	margin: 0 auto;
+	background: green;
+}
+
+header{
+	background: blue;
+	color: #fff;
+}
+
+footer{
+	position: bottom;
+	background: #000;
+	color:#fff;
+}

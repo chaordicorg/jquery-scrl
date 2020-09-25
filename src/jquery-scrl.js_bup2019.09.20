@@ -7,10 +7,10 @@
 	/*
 	 * 共通設定
 	 */
-	// var $body = $('body');
-	// var $wrap = $('#scrl-wrap');
-	$('body').height($('#scrl-wrap').height());
-	$('#scrl-wrap').width($('body').width());
+	var $body = $('body');
+	var $wrap = $('#scrl-wrap');
+	$body.height($wrap.height());
+	$wrap.width($body.width());
 
 	/*
 	 * リサイズ検知
@@ -27,14 +27,13 @@
 
 	windowResize({
 		func: function(){
-			$('#scrl-wrap').width($('body').width());
+			$wrap.width($body.width());
+			// tgt_con_h = $tgt_con.height();
 		},
 		span: 100
 	});
 
-
-
-
+	
 	/*
 	 * pulug-in
 	 */
@@ -51,9 +50,9 @@
 			 */
 			var active = true;
 			var flag = false;
-			var _tgt = $(this);
-			var _tgt_con = $('.scrl-contents', _tgt);
-			var tgt_h = $(this).height();
+			var $tgt = $(this);
+			var $tgt_con = $('.scrl-contents', $tgt);
+			var tgt_h = $tgt.height();
 			var tgt_con_h = 0;
 
 
@@ -68,7 +67,7 @@
 				var snap;
 				var tgt_y;
 
-				tgt_con_h = _tgt_con.height();	// 画像の高さ
+				tgt_con_h = $tgt_con.height();	// 画像の高さ
 
 
 				/*
@@ -77,8 +76,8 @@
 				var without = function(top){
 					if (!(top == undefined)){
 						$(window).scrollTop(top);
-						$('#scrl-wrap').css({position:"static",overflow:"inherit"});
-						$('body').height($('#scrl-wrap').height());
+						$wrap.css({position:"static",overflow:"inherit"});
+						$body.height($wrap.height());
 					}
 				}
 
@@ -90,7 +89,7 @@
 				var scrl  = 0;
 				var _scrl = 0;
 				var p_top = 0;
-				var off = _tgt.offset();
+				var off = $tgt.offset();
 				var tgt_top;
 				var scrollTop;
 
@@ -106,16 +105,16 @@
 							// -- ギミックが始まる前
 
 							if (tgt_top < 0){
-								console.log($('#scrl-wrap'));
+								console.log($wrap);
 								flag = true;
 								snap = scrollTop;
-								$('#scrl-wrap').css({
+								$wrap.css({
 									position:"fixed",
 									overflow:"hidden",
 									top: (off.top * -1) + "px",
 								});
 
-								$('body').height($('#scrl-wrap').height() + tgt_h);
+								$body.height($wrap.height() + tgt_h);
 							}
 
 						}else{
@@ -124,7 +123,7 @@
 
 							_scrl = scrl;
 							scrl  = $(this).scrollTop();
-							tgt_y = _tgt.scrollTop();
+							tgt_y = $tgt.scrollTop();
 							
 							if (tgt_y > brekeout){
 								// $(window).off("load scroll"); // イベントを停止！
@@ -139,7 +138,7 @@
 							}
 							
 							console.log(scrl + ' - ' + _scrl + ' = ' + scrl_span);
-							_tgt.scrollTop(tgt_y + scrl_span);
+							$tgt.scrollTop(tgt_y + scrl_span);
 
 						}
 					}
@@ -151,10 +150,9 @@
 			/*
 			 * 開始
 			 */
-			//$("html").animate({scrollTop: 0}, 3000, function(){
+			$("html").animate({scrollTop: 0}, 1000, function(){
 				main();
-			//});
-			// setTimeout(main, 3000);
+			});
 
 
 

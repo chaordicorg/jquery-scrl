@@ -5,7 +5,7 @@
 	<title>TEST</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 	<style>
 
 	h1{ font-size: 32px; }
@@ -44,11 +44,13 @@
 
 	<script>
 	$(function(){
-		/*
-		 * scrl設定
-		 */
-		$('#scrl-1').jquery_scrl();
-		$('#scrl-2').jquery_scrl();
+		$("html").animate({scrollTop: 0}, "1", function(){
+			/*
+			 * scrl設定
+			 */
+			$('#scrl-1').jquery_scrl();
+			$('#scrl-2').jquery_scrl();
+		});
 	});
 	</script>
 </head>
@@ -72,7 +74,7 @@
 		</div>
 
 		<article>
-			<h1>TEST3</h1>
+			<h1>TEST1</h1>
 			<h1>TEST</h1>
 			<h1>TEST</h1>
 			<h1>TEST</h1>
